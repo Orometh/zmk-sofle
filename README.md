@@ -1,29 +1,66 @@
-# Sofle
+# zmk-sofle — Diego (Orometh)
 
-- [中文](README.md)
-- [English](README_EN.md)
+Configuración **ZMK** de mi teclado split **Eyelash Sofle** (CYTINFO "Sofle LCD Wireless"):
+nice!nano v2 · pantalla **nice!view** · **joystick** direccional · **encoder** (knob) · **RGB** · 58 teclas 1U.
 
-## 更新列表
+> Fork de [a741725193/zmk-sofle](https://github.com/a741725193/zmk-sofle) (el shield `eyelash_sofle` y todo el hardware es obra del creador original). Acá solo cambia **mi keymap**.
 
-- 2024/12/21
-  1. 增加zmk-studio支持（只需要刷新左手即可使用）。
-- 2024/10/24
-  1. 修改供电模式，功耗降低。
-  2. 修正RGB供电自动关闭的功能。
-- 2025/3/30 增加睡眠进入时间1小时  增加防抖时间 优化睡眠后功耗 
-- 2025/8/22
-  1. 更新了soft off。当您同时按下 Q、S 和 Z 键并按住 2 秒钟时，键盘将进入深度睡眠状态，无法通过按键唤醒。携带外出时可以使用此功能。激活方式为按一次复位开关。
-  2. 这个月，我还更新了矮轴版本sofle和corne的外壳。框架和底板加厚了，复位开关的开口也进行了调整，可以轻松按下复位开关。目前，我们仍在构思如何设计带有倾斜支架的外壳。如果您仔细检查过 PCB，您会注意到有用于扩展 IO 的预留接口。不知道有没有人能够使用它们，我会尝试一下！
-  3. 右侧键盘屏幕上的GIF动画被移除，这将显著降低右侧键盘的功耗。
+---
 
-> 如果您的键盘于2025年8月22之前更新，请更新最新的固件。
->
+## 🧩 Mi layout
 
-## 联系我
+### Capa Base
+```
+ Esc  1 2 3 4 5   [joystick]   6 7 8 9 0  =
+  -   Q W E R T   [joystick]   Y U I O P  [
+  \|  A S D F G   [joystick]   H J K L ;  '
+ SHFT Z X C V B   [joystick]   N M , . /  Del
+```
+- Pulgares **IZQ**: `▶`Play · `Ctrl` · `FN`(LOWER) · `Alt` · `Win`(Super)
+- Pulgares **DER**: `◄`Enter · `▼`Space · `FN`(RAISE) · `Alt`(AltGr) · `Menu`
+- **Esc** está en el press del **encoder**, y el home-pinky izq es `\|`.
+- AJUSTE = mantener **LOWER + RAISE** juntas.
 
-如需3D打印的模型文件或者键盘有任何异常和故障，请联系380465425@qq.com
+### 🖱️ Mouse
+| Acción | Cómo |
+|---|---|
+| Mover cursor | Joystick |
+| Click izquierdo | Apretar el joystick |
+| Click derecho | Apretar el encoder (capa Base) |
+| Click medio | LOWER + apretar el encoder |
 
-## Sofle键位图
+### 🎛️ Encoder (por capa)
+| Capa | Girar | Apretar |
+|---|---|---|
+| Base | Scroll vertical | Click derecho |
+| LOWER | Scroll horizontal | Click medio |
+| RAISE | Volumen | Mute |
+| AJUSTE | Brillo RGB | — |
 
-![Sofle键位图](keymap-drawer/eyelash_sofle.svg)
+El keymap completo está en [`config/eyelash_sofle.keymap`](config/eyelash_sofle.keymap).
 
+---
+
+## 🛠️ Cómo generar el firmware
+1. Cada `push` (o *Actions → Build ZMK firmware → Run workflow*) compila solo.
+2. Cuando la corrida está en verde: abrir la corrida → **Artifacts → firmware** → descargar el `.zip`.
+3. Adentro hay 3 `.uf2`:
+   - `eyelash_sofle_left ...` → **mitad izquierda** (es la central, lleva ZMK Studio).
+   - `eyelash_sofle_right ...` → **mitad derecha**.
+   - `settings_reset ...` → solo para limpiar el pareo si hace falta.
+
+## ⚡ Cómo flashear
+1. Conectar una mitad por USB → **doble-tap** al botón de reset → aparece como pendrive `NICENANO`.
+2. Arrastrar **su** `.uf2` adentro (izquierda a la izquierda, derecha a la derecha).
+3. Repetir con la otra mitad. Las mitades se reconectan solas.
+
+**Si las mitades no se hablan tras cambiar de firmware:** flashear `settings_reset` a **ambas**, y después volver a flashear izquierda + derecha.
+
+## 🎨 Edición visual (ZMK Studio)
+El firmware se compila con soporte **ZMK Studio**. Con la mitad izquierda conectada por USB,
+se editan las capas en vivo desde [zmk.studio](https://zmk.studio) sin recompilar.
+
+---
+
+## Créditos
+Hardware y shield `eyelash_sofle`: [a741725193](https://github.com/a741725193/zmk-sofle). Vendido por CYTINFO.
