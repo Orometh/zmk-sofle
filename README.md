@@ -18,7 +18,7 @@ nice!nano v2 · pantalla **nice!view** · **joystick** direccional · **encoder*
 ```
 - Pulgares **IZQ**: `▶`Play · `Ctrl` · `FN`(LOWER) · `Alt` · `Win`(Super)
 - Pulgares **DER**: `◄`Enter · `▼`Space · `FN`(RAISE) · `Alt`(AltGr) · `Menu`
-- **Esc** está en el press del **encoder**, y el home-pinky izq es `\|`.
+- **Esc** está arriba-izquierda; el home-pinky izq es `\|`. (El press del encoder es el **click derecho**, no Esc.)
 - AJUSTE = mantener **LOWER + RAISE** juntas.
 
 ### 🖱️ Mouse
