@@ -117,6 +117,36 @@ parse_config:
     type: trans
 
   raw_binding_map:
+    # === Simbolos Latam (RAISE + base renombrada) ===
+    "&kp ES_LPAR": "("
+    "&kp ES_RPAR": ")"
+    "&kp ES_LBRC": "{"
+    "&kp ES_RBRC": "}"
+    "&kp ES_LBKT": "["
+    "&kp ES_RBKT": "]"
+    "&kp ES_EQUAL": "="
+    "&kp ES_PLUS": "+"
+    "&kp ES_MINUS": "-"
+    "&kp ES_STAR": "*"
+    "&kp ES_FSLH": "/"
+    "&kp ES_BSLH": "\\"
+    "&kp ES_LT": "<"
+    "&kp ES_GT": ">"
+    "&kp ES_PIPE": "|"
+    "&kp ES_UNDER": "_"
+    "&kp ES_ACUTE": "´"
+    "&kp ES_N_TILDE": "ñ"
+    "&grave_lit": "`"
+    "&tilde_lit": "~"
+    "&qmark": "¿"
+    # === Glifos Latam reales de teclas US (sin cambiar comportamiento) ===
+    "&kp MINUS": "'"
+    "&kp GRAVE": "|"
+    "&kp EQUAL": "¿"
+    "&kp TILDE": "°"
+    "&kp LEFT_BRACKET": "´"
+    "&kp RIGHT_BRACKET": "+"
+    "&kp NON_US_BSLH": "<"
     # Layers
     "&ltq 1 BACKSPACE":
       tap:  $$mdi:backspace$$
