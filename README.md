@@ -9,6 +9,10 @@ nice!nano v2 · pantalla **nice!view** · **joystick** direccional · **encoder*
 
 ## 🧩 Mi layout
 
+> 🖼️ **Vista completa de todas las capas** (se regenera sola en cada cambio):
+>
+> ![Keymap](keymap-drawer/eyelash_sofle.svg)
+
 ### Capa Base
 ```
  Esc  1 2 3 4 5   [joystick]   6 7 8 9 0  =
